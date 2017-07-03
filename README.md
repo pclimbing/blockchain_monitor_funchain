@@ -4,20 +4,20 @@
 
 # 使用该项目
 1. 在dockerhub上拉取最新docker image    
-   docker pull 
+   `docker pull` 
 
 2. 在config文件夹下修改配置文件。     
-   hpc.properties - 趣链节点的ip  
+   `hpc.properties - 趣链节点的ip`  
    
 3. 启动docker容器，可以只指定3003端口映射出来。    
-   docker run -d \
+    ```docker run -d \
     --name docker-statsd-influxdb-grafana \
     -p 3003:3003 \
     -p 3004:8083 \
     -p 8086:8086 \
     -p 22022:22 \
     -p 8125:8125/udp \
-    blcokchain-monitor_funchain:latest    
+    blcokchain-monitor_funchain:latest```    
     
 4. 打开浏览器，在 localhost:3003 地址查看监控内容。   
 
