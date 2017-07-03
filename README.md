@@ -4,10 +4,10 @@
 # 使用该项目
 1. 在dockerhub上拉取最新docker image  
 
-2. 在config文件夹下配置两个配置文件，  
+2. 在config文件夹下配置两个配置文件，   
    hpc.properties - 趣链节点的ip，趣链java sdk的配置项  
    
-3. 启动docker容器，可以只开放3003端口,此端口为grafana端口。8083和8086为influxdb端口，可查看influxdb官方文档使用它们。22为ssh端口，若开放外部连接可以使用。   
+3. 启动docker容器，可以只开放3003端口,此端口为grafana端口。8083和8086为influxdb端口，可查看influxdb官方文档使用它们。22为ssh端口，若开放外部连接可以使用。     
    docker run -d \
     --name docker-statsd-influxdb-grafana \
     -p 3003:3003 \
