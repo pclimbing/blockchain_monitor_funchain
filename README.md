@@ -22,13 +22,6 @@
 4. 打开浏览器，在 localhost:3003 地址查看监控内容。   
 
 # Mapped Ports      
-·Host        Container       Service    ·
-3003        3003            grafana    
-3004        8083            influxdb-admin    
-8086        8086            influxdb    
-8125        8125            statsd    
-·22022       22              sshd   ·
-
 Host | Container | Service
 -----|-----------|----
 4003 | 3003      | grafana
