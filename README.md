@@ -18,3 +18,7 @@
     blcokchain-monitor_funchain:latest
     
 4. 打开浏览器，在 localhost:3003 地址查看监控内容。   
+
+
+![image](https://github.com/pclimbing/blockchain_monitor_funchain/raw/master/images/qu1.png)
+![image](https://github.com/pclimbing/blockchain_monitor_funchain/raw/master/images/qu2.png)
