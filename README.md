@@ -4,22 +4,60 @@
 
 # 使用该项目
 1. 在dockerhub上拉取最新docker image    
-   `docker pull` 
+`docker pull fenneld/blockchain-monitor-funchain` 
 
-2. 在config文件夹下修改配置文件。     
-   `hpc.properties - 趣链节点的ip`  
-   
-3. 启动docker容器，可以只指定3003端口映射出来。    
-    ```docker run -d \
-    --name docker-statsd-influxdb-grafana \
-    -p 3003:3003 \
-    -p 3004:8083 \
-    -p 8086:8086 \
-    -p 22022:22 \
-    -p 8125:8125/udp \
-    blcokchain-monitor_funchain:latest```    
+2. 创建一个文件夹，增加配置文件hpc.properties     
+    ```
+    #初始化HyperchainAPI
+
+    #Hyperchain Nodes IP Ports
+    node={"nodes":["10.15.190.85:3011","10.15.190.85:3012", "10.15.190.85:3013", "10.15.190.85:3014"]}
+
+    #重发次数
+    resendTime = 10
+
+    #第一次轮训时间间隔 unit /ms
+    firstPollingInterval = 1000
+
+    #发送一次,第一次轮训的次数
+    firstPollingTimes = 10
+
+    #第二次轮训时间间隔 unit /ms
+    secondPollingInterval = 1000
+
+    #发送一次,第二次轮训的次数
+    secondPollingTimes = 10
+
+    #Send Tcert during the request or not
+    SendTcert = false
+
+    #if sendTcert is true , you should add follow path.
+    ecertPath = src/test/resources/certs/ecert.cert
+    ecertPriPath = src/test/resources/certs/ecert.priv
+    uniquePrivPath = src/test/resources/certs/unique.priv
+    uniquePubPath = src/test/resources/certs/unique.pub/
+    ```    
+
+3. 增加文件docker-compose.yaml    
+    ```
+    version: '1'
+    services:
+      monitoring:
+         container_name: funchain-monitor
+      image: fenneld/blockchain-monitor-funchain
+      volumes:
+         - $HPC-CONFIG:/root/hpc.properties
+      ports:
+        - "3003:3003"
+        - "3004:8083"
+        - "8086:8086"
+        - "22022:22"
+        - "8125:8125/udp"
+    ```    
     
-4. 打开浏览器，在 localhost:3003 地址查看监控内容。   
+4. 启动docker容器    
+    `HPC-CONFIG=./hpc.properties docker-compose up -d`
+5. 打开浏览器，在 localhost:3003 地址查看监控内容。   
 
 # Mapped Ports      
 Host | Container | Service
