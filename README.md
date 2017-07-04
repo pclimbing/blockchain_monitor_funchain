@@ -7,7 +7,7 @@
 `docker pull fenneld/blockchain-monitor-funchain` 
 
 2. 创建一个文件夹，增加配置文件hpc.properties     
-    ```
+```
 #初始化HyperchainAPI的
 
 #Hyperchain Nodes IP Ports
@@ -36,10 +36,10 @@ ecertPath = src/test/resources/certs/ecert.cert
 ecertPriPath = src/test/resources/certs/ecert.priv
 uniquePrivPath = src/test/resources/certs/unique.priv
 uniquePubPath = src/test/resources/certs/unique.pub/
-    ```    
+```    
 
 3. 增加文件docker-compose.yaml    
-    ```
+```
 version: '2'
 
 services:
@@ -54,7 +54,7 @@ services:
       - "8086:8086"
       - "22022:22"
       - "8125:8125/udp"
-    ```    
+```    
     
 4. 启动docker容器    
     `HPC-CONFIG=./hpc.properties docker-compose up -d`
