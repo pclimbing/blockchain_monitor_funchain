@@ -38,7 +38,7 @@ uniquePrivPath = src/test/resources/certs/unique.priv
 uniquePubPath = src/test/resources/certs/unique.pub/
 ```    
 
-3. 增加文件docker-compose.yaml    
+3. 增加文件docker-compose.yaml。可以只开3003端口，其他端口按需开启    
 ```
 version: '2'
 
