@@ -32,7 +32,7 @@ public class App
 
         try {
 //            HyperchainAPI hyperchain = new HyperchainAPI();
-            HyperchainAPI hyperchain = new HyperchainAPI("/opt/hpc.properties");
+            HyperchainAPI hyperchain = new HyperchainAPI("/root/hpc.properties");
             InfluxWriter influxdb = new InfluxWriter();
 
 
@@ -44,14 +44,20 @@ public class App
 //            query(hyperchain);
 
 
+//            StdReturn re = hyperchain.getTx( "1", "");
+//            System.out.println(re.getResult());
 
-            StdReturn re = hyperchain.getTx( "1", "");
-            System.out.println(re.getResult());
 
-            insertTrans(hyperchain, influxdb);
-            insertBlocks(hyperchain, influxdb);
+            while(true){
+                //等待3秒
+                try{Thread.sleep(3000);}catch(Exception e){}
+
+                insertTrans(hyperchain, influxdb);
+                insertBlocks(hyperchain, influxdb);
 //            insertBlocktoInflux(hyperchain, influxdb);  //abandoned
-            insertNodestoInflux(hyperchain, influxdb);
+                insertNodestoInflux(hyperchain, influxdb);
+            }
+
 
         } catch (Exception e) {
             e.printStackTrace();
