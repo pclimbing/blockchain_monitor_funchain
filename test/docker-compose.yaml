@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  monitoring:
+    container_name: funchain-monitor
+    image: fenneld/blockchain-monitor-funchain
+    volumes:
+      - $HPC_CONFIG:/root/hpc.properties
+    ports:
+      - "4003:3003"
+      - "4004:8083"
+      - "8086:8086"
+      - "22022:22"
+      - "8125:8125/udp"
