@@ -31,7 +31,8 @@ public class App
     {
 
         try {
-            HyperchainAPI hyperchain = new HyperchainAPI();
+//            HyperchainAPI hyperchain = new HyperchainAPI();
+            HyperchainAPI hyperchain = new HyperchainAPI("/opt/hpc.properties");
             InfluxWriter influxdb = new InfluxWriter();
 
 
