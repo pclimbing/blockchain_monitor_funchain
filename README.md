@@ -57,7 +57,7 @@ services:
 ```    
     
 4. 启动docker容器    
-    `HPC-CONFIG=./hpc.properties docker-compose up -d`
+    `HPC_CONFIG=./hpc.properties docker-compose up -d`
 5. 打开浏览器，在 localhost:3003 地址查看监控内容。   
 
 # Mapped Ports      
