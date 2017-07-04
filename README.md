@@ -8,51 +8,52 @@
 
 2. 创建一个文件夹，增加配置文件hpc.properties     
     ```
-    #初始化HyperchainAPI
+#初始化HyperchainAPI的
 
-    #Hyperchain Nodes IP Ports
-    node={"nodes":["10.15.190.85:3011","10.15.190.85:3012", "10.15.190.85:3013", "10.15.190.85:3014"]}
+#Hyperchain Nodes IP Ports
+node={"nodes":["10.15.190.85:3011","10.15.190.85:3012", "10.15.190.85:3013", "10.15.190.85:3014"]}
 
-    #重发次数
-    resendTime = 10
+#重发次数
+resendTime = 10
 
-    #第一次轮训时间间隔 unit /ms
-    firstPollingInterval = 1000
+#第一次轮训时间间隔 unit /ms
+firstPollingInterval = 1000
 
-    #发送一次,第一次轮训的次数
-    firstPollingTimes = 10
+#发送一次,第一次轮训的次数
+firstPollingTimes = 10
 
-    #第二次轮训时间间隔 unit /ms
-    secondPollingInterval = 1000
+#第二次轮训时间间隔 unit /ms
+secondPollingInterval = 1000
 
-    #发送一次,第二次轮训的次数
-    secondPollingTimes = 10
+#发送一次,第二次轮训的次数
+secondPollingTimes = 10
 
-    #Send Tcert during the request or not
-    SendTcert = false
+#Send Tcert during the request or not
+SendTcert = false
 
-    #if sendTcert is true , you should add follow path.
-    ecertPath = src/test/resources/certs/ecert.cert
-    ecertPriPath = src/test/resources/certs/ecert.priv
-    uniquePrivPath = src/test/resources/certs/unique.priv
-    uniquePubPath = src/test/resources/certs/unique.pub/
+#if sendTcert is true , you should add follow path.
+ecertPath = src/test/resources/certs/ecert.cert
+ecertPriPath = src/test/resources/certs/ecert.priv
+uniquePrivPath = src/test/resources/certs/unique.priv
+uniquePubPath = src/test/resources/certs/unique.pub/
     ```    
 
 3. 增加文件docker-compose.yaml    
     ```
-    version: '1'
-    services:
-      monitoring:
-         container_name: funchain-monitor
-      image: fenneld/blockchain-monitor-funchain
-      volumes:
-         - $HPC-CONFIG:/root/hpc.properties
-      ports:
-        - "3003:3003"
-        - "3004:8083"
-        - "8086:8086"
-        - "22022:22"
-        - "8125:8125/udp"
+version: '2'
+
+services:
+  monitoring:
+    container_name: funchain-monitor
+    image: fenneld/blockchain-monitor-funchain
+    volumes:
+      - $HPC_CONFIG:/root/hpc.properties
+    ports:
+      - "4003:3003"
+      - "4004:8083"
+      - "8086:8086"
+      - "22022:22"
+      - "8125:8125/udp"
     ```    
     
 4. 启动docker容器    
