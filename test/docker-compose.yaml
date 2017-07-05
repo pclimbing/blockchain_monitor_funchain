@@ -3,7 +3,7 @@ version: '2'
 services:
   monitoring:
     container_name: funchain-monitor
-    image: fenneld/blockchain-monitor-funchain
+    image: docker.io/fenneld/blockchain-monitor-funchain:v1.2
     volumes:
       - $HPC_CONFIG:/root/hpc.properties
     ports:
