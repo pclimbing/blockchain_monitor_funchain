@@ -40,8 +40,8 @@ public class App
 //            CompileReturn complieResult = compile(hyperchain, SOLC_CODE);
 //            String contractAddress = deploy(hyperchain, complieResult.getBin().get(0), ecKey);
 //            invokeNoParamFunc(hyperchain, contractAddress, complieResult.getAbi().get(0), ecKey, "increment");
-            invokeNoParamFunc(hyperchain, contractAddress, complieResult.getAbi().get(0), ecKey, "getSum");
-            query(hyperchain);
+//            invokeNoParamFunc(hyperchain, contractAddress, complieResult.getAbi().get(0), ecKey, "getSum");
+//            query(hyperchain);
 
 
 //            StdReturn re = hyperchain.getTx( "1", "");
