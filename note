@@ -1,12 +1,15 @@
 HPC_CONFIG=./hpc_conf  docker-compose up
 
 
-version: '1'
+
+
+version: '2'
 
 services:
   monitoring:
     container_name: funchain-monitor
     image: fenneld/blockchain-monitor-funchain
+    command: sh -c '/root/jdk1.8.0_131/bin/java -jar /root/Influxtest-1.0-SNAPSHOT-jar-with-dependencies.jar'
     volumes:
       - $HPC_CONFIG:/root/hpc.properties
     ports:
