@@ -12,4 +12,4 @@ services:
       - "8086:8086"
       - "22022:22"
       - "8125:8125/udp"
-    command: sh -c '/root/jdk1.8.0_131/bin/java -jar /root/Influxtest-1.0-SNAPSHOT-jar-with-dependencies.jar'
+#    command: sh -c '/root/jdk1.8.0_131/bin/java -jar /root/Influxtest-1.0-SNAPSHOT-jar-with-dependencies.jar'
