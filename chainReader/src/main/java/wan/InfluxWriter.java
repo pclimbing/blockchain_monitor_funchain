@@ -124,7 +124,7 @@ public class InfluxWriter {
                 .build();
         Point point1 = Point.measurement("blocks")
                 .time(time/1000000, TimeUnit.MILLISECONDS)
-                .tag("block", number)
+                .tag("blockhash", hash)
                 .addField("version", version)
                 .addField("number", numberInt)
                 .addField("hash", hash)
@@ -135,7 +135,7 @@ public class InfluxWriter {
                 .build();
         batchPoints.point(point1);
 
-        this.deleteByField("blocks", "block", number);
+        this.deleteByField("blocks", "blockhash", hash);
         influxDB.write(batchPoints);
     }
 

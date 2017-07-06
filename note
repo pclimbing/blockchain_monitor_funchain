@@ -1,12 +1,23 @@
 HPC_CONFIG=./hpc_conf  docker-compose up
 
 
+阿里4引入包
 scp root@172.26.127.140:/opt/blockchain_monitor_funchain/chainReader/target/Influxtest-1.0-SNAPSHOT-jar-with-dependencies.jar ./
 
 /root/jdk1.8.0_131/bin/java -jar /root/Influxtest-1.0-SNAPSHOT-jar-with-dependencies.jar
 
+
+建立start脚本
 echo "sleep 10s"  >> startWatch.sh
 echo "nohup /root/jdk1.8.0_131/bin/java -jar /root/Influxtest-1.0-SNAPSHOT-jar-with-dependencies.jar &"  >> startWatch.sh
+
+
+引入hyperchian jdk
+mvn install:install-file -Dfile=hyperchainsdk-2.2.3-jar-with-dependencies.jar -DgroupId=org.hyperchain.hyperchian-dependencies-sdk-java -DartifactId=hyperchain-dependencies-sdk-java -Dversion=2.2.3-SNAPSHOT -Dpackaging=jar
+
+
+
+
 
 
 version: '2'

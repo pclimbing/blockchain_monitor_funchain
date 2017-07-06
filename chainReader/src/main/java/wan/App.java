@@ -82,6 +82,7 @@ public class App
 
     public static void insertBlocks(HyperchainAPI hyperchain, InfluxWriter influxdb){
 
+        influxdb.deleteMeasurement("blocks");
         //get newest block
         BlockReturn blockReturn = hyperchain.getLatestBlock();
         JSONObject bkjson = JSONObject.fromObject(blockReturn.getResult());

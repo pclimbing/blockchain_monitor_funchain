@@ -1,0 +1,13 @@
+
+v1.1
+改进：
+1. 增加config文件夹。（对有volumn的container做commit会发生奇怪的问题, 重启时内外文件不同步， container内文件无法删除无法修改， rm -fr无效， umount无效）
+2. grafana插件整理，pie，influx-admin
+
+bugs:
+1. 块记录不断增大，influxwriter中删除块逻辑失效
+2. 表格式，对齐等
+
+
+v1.0
+创建docker，java jdk， java hyperchain sdk， grafana， influxdb
