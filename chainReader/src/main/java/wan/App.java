@@ -32,7 +32,7 @@ public class App
 
         try {
 //            HyperchainAPI hyperchain = new HyperchainAPI();
-            HyperchainAPI hyperchain = new HyperchainAPI("/root/hpc.properties");
+            HyperchainAPI hyperchain = new HyperchainAPI("/root/config/hpc.properties");
             InfluxWriter influxdb = new InfluxWriter();
 
 

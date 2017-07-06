@@ -5,7 +5,7 @@ services:
     container_name: funchain-monitor
     image: docker.io/fenneld/blockchain-monitor-funchain:v1.2
     volumes:
-      - $HPC_CONFIG:/root/hpc.properties
+      - ./config:/root/config
     ports:
       - "4003:3003"
       - "4004:8083"
