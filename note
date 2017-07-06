@@ -1,7 +1,7 @@
 HPC_CONFIG=./hpc_conf  docker-compose up
 
 
-scp root@172.26.127.134:/opt/blockchain_monitor_funchain/chainReader/target/Influxtest-1.0-SNAPSHOT-jar-with-dependencies.jar ./
+scp root@172.26.127.140:/opt/blockchain_monitor_funchain/chainReader/target/Influxtest-1.0-SNAPSHOT-jar-with-dependencies.jar ./
 
 /root/jdk1.8.0_131/bin/java -jar /root/Influxtest-1.0-SNAPSHOT-jar-with-dependencies.jar
 

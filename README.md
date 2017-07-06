@@ -6,7 +6,7 @@
 1. 在dockerhub上拉取最新docker image    
 `docker pull fenneld/blockchain-monitor-funchain` 
 
-2. 创建一个文件夹，增加配置文件hpc.properties     
+2. 创建一个文件夹，增加配置文件./config/hpc.properties     
 ```
 #初始化HyperchainAPI的
 
@@ -38,7 +38,7 @@ uniquePrivPath = src/test/resources/certs/unique.priv
 uniquePubPath = src/test/resources/certs/unique.pub/
 ```    
 
-3. 增加文件docker-compose.yaml。可以只开3003端口，其他端口按需开启    
+3. 增加文件docker-compose.yaml。可以只开3003端口，其他端口按需开启.    
 ```
 version: '2'
 
@@ -47,18 +47,19 @@ services:
     container_name: funchain-monitor
     image: fenneld/blockchain-monitor-funchain
     volumes:
-      - $HPC_CONFIG:/root/hpc.properties
+      - ./config:/root/config
     ports:
       - "4003:3003"
       - "4004:8083"
       - "8086:8086"
       - "22022:22"
       - "8125:8125/udp"
+#   command: sh -c '/root/jdk1.8.0_131/bin/java -jar /root/Influxtest-1.0-SNAPSHOT-jar-with-dependencies.jar'
 ```    
     
 4. 启动docker容器    
-    `HPC_CONFIG=./hpc.properties docker-compose up -d`
-5. 打开浏览器，在 localhost:3003 地址查看监控内容。   
+    `docker-compose up -d`
+5. 打开浏览器，在 localhost:4003 地址查看监控内容。   
 
 # Mapped Ports      
 Host | Container | Service
