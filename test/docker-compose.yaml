@@ -3,7 +3,7 @@ version: '2'
 services:
   monitoring:
     container_name: funchain-monitor
-    image: docker.io/fenneld/blockchain-monitor-funchain:v1.2
+    image: docker.io/fenneld/blockchain-monitor-funchain:v1.4
     volumes:
       - ./config:/root/config
     ports:
