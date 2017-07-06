@@ -61,6 +61,10 @@ public class InfluxWriter {
 
     }
 
+    public void flushDB(){
+        influxDB.deleteDatabase(dbName);
+        influxDB.createDatabase(dbName);
+    }
 
     public void write_nodes(ArrayList<NodeInfoReturn> nodeInfoReturns){
         this.deleteMeasurement("nodes");

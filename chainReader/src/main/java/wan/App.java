@@ -50,7 +50,9 @@ public class App
 
             while(true){
                 //等待3秒
-                try{Thread.sleep(3000);}catch(Exception e){}
+                try{Thread.sleep(5000);}catch(Exception e){}
+
+                influxdb.flushDB();
 
                 insertTrans(hyperchain, influxdb);
                 insertBlocks(hyperchain, influxdb);
@@ -82,7 +84,7 @@ public class App
 
     public static void insertBlocks(HyperchainAPI hyperchain, InfluxWriter influxdb){
 
-        influxdb.deleteMeasurement("blocks");
+//        influxdb.deleteMeasurement("blocks");
         //get newest block
         BlockReturn blockReturn = hyperchain.getLatestBlock();
         JSONObject bkjson = JSONObject.fromObject(blockReturn.getResult());
