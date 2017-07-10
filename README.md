@@ -9,7 +9,6 @@
 2. 创建一个文件夹，增加配置文件./config/hpc.properties     
 ```
 #初始化HyperchainAPI的
-
 #Hyperchain Nodes IP Ports
 node={"nodes":["10.15.190.85:3011","10.15.190.85:3012", "10.15.190.85:3013", "10.15.190.85:3014"]}
 
