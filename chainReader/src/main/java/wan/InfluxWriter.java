@@ -129,6 +129,7 @@ public class InfluxWriter {
         Point point1 = Point.measurement("blocks")
                 .time(time/1000000, TimeUnit.MILLISECONDS)
                 .tag("blockhash", hash)
+                .tag("tx", txcounts)
                 .addField("version", version)
                 .addField("number", numberInt)
                 .addField("hash", hash)
