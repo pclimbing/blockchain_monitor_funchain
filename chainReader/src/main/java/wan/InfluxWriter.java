@@ -84,7 +84,7 @@ public class InfluxWriter {
                 .build();
         Point point1 = Point.measurement("nodes")
                 .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)
-                .tag("node", ip)
+                .tag("primary", String.valueOf(primary))
                 .addField("ip", ip)
                 .addField("id", id)
                 .addField("primary", primary)
@@ -115,6 +115,7 @@ public class InfluxWriter {
 
         int txcountsInt = Integer.parseInt(txcounts.replaceAll("^0[x|X]", ""), 16);
         int numberInt = Integer.parseInt(number.replaceAll("^0[x|X]", ""), 16);
+        int avgTimeInt = Integer.parseInt(avgTime.replaceAll("^0[x|X]", ""), 16);
 
 
 //        System.out.println(System.currentTimeMillis());
@@ -134,7 +135,7 @@ public class InfluxWriter {
                 .addField("number", numberInt)
                 .addField("hash", hash)
                 .addField("parentHash", parentHash)
-                .addField("avgTime", avgTime)
+                .addField("avgTime", avgTimeInt)
                 .addField("txcounts", txcountsInt)
                 .addField("merkleRoot", merkleRoot)
                 .build();
@@ -193,6 +194,7 @@ public class InfluxWriter {
         Point point1 = Point.measurement("transactions")
                 .time(timestamp, TimeUnit.MILLISECONDS)
                 .tag("tranHash", hash)
+                .tag("blockNumber", Integer.toString(blockInt))
                 .addField("version", version)
                 .addField("blockNumber", blockInt)
                 .addField("hash", hash)
